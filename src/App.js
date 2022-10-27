@@ -1,5 +1,4 @@
 import './App.scss';
-// import { Search } from './Search';
 import { CountryData } from './CountryData';
 
 function App() {

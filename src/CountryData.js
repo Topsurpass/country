@@ -7,7 +7,8 @@ import { Search } from './Search';
 export const CountryData = () => {
   const [data,setData]=useState([]);  
   const [loading, setLoading]=useState(false);
-  const [dataSearch, setDataSearch] = useState('');
+  const [country, setCountry] = useState('');
+  const [region, setRegion]=useState('');
 
   useEffect(()=>{
     setLoading(true);
@@ -24,30 +25,47 @@ export const CountryData = () => {
             setLoading(false);
             document.getElementsByClassName('error')[0].innerHTML = err.message;
           })
-  },[dataSearch])
+  },[region,country])
 
   useEffect(()=>{
     setLoading(true);
-    const arr1 =[];
-    axios.get(`https://restcountries.com/v3.1/region/${dataSearch}`)
+    const arr =[];
+    axios.get(`https://restcountries.com/v3.1/region/${region}`)
     .then(res=>{
       for(let i=0;i<res.data.length;i++){
-        arr1.push(res.data[i]);
+        arr.push(res.data[i]);
       }
-      setData(()=>arr1);
+      setData(()=>arr);
       setLoading(false);
     })
-  },[dataSearch]);
+  },[region]);
+
+  useEffect(()=>{
+    setLoading(true);
+    const arr =[];
+    axios.get(`https://restcountries.com/v3.1/name/${country}`)
+    .then(res=>{
+      for(let i=0;i<res.data.length;i++){
+        arr.push(res.data[i]);
+      }
+      setData(()=>arr);    
+      setLoading(false);
+    })
+  },[country]);
 
   const handleChange=(e)=>{
-    setDataSearch((data)=>{
+    setCountry((data)=>{
       return data=e.target.value;
     })
   }
-  
+
+  const handleSelect=()=>{
+    const continent = document.getElementById('filter').value
+    setRegion(continent)
+  }
   return (
     <div id='bodyDiv'>
-          <Search search={dataSearch} changeHandler={handleChange} id='searchCountry'/>
+          <Search search={country} changeHandler={handleChange} id='searchCountry' select={handleSelect}/>
       {
       loading?<div className='loader'>
         <PropagateLoader color={'#36d7b7'} size={10}/><br/>
