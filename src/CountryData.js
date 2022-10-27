@@ -56,15 +56,19 @@ export const CountryData = () => {
        
         data.map(i=>{
           return <div  className='countryData' id={i.name.common} key={i.name.common}>
-              {/* <div className='infoDiv'> */}
-                <img src={i.flags.png} width={'100%'} height={'50%'} alt={i.flags}/>
-                <div><h3>{i.name.common}</h3></div>
-                <div><p>Population: {i.population}</p></div>
-                <div><p>Region: {i.region}</p></div>
-                <div><p>Capital: {i.capital}</p></div>
-              </div>
-          // </div>
-        })
+             <div>
+              <img src={i.flags.png} width={'100%'} height={'100%'} alt={i.flags}/>
+             </div>
+
+            <div className='info'>
+              <div><h3>{i.name.common}</h3></div>
+              <div><p>Population: {i.population}</p></div>
+              <div><p>Region: {i.region}</p></div>
+              <div><p>Capital: {i.capital}</p></div>
+            </div>
+              
+            </div>
+          })
        }
       <p className='error'></p>
     </div>
