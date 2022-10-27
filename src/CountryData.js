@@ -24,28 +24,27 @@ export const CountryData = () => {
             setLoading(false);
             document.getElementsByClassName('error')[0].innerHTML = err.message;
           })
-  },[])
-  // [dataSearch==='']
-  // useEffect(()=>{
-  //   setLoading(true);
-  //   const arr1 =[];
-  //   const typing = document.getElementById('searchCountry').value;
-  //   axios.get(`https://restcountries.com/v3.1/region/${typing}`)
-  //   .then(res=>{
-  //     for(let i=0;i<res.data.length;i++){
-  //       arr1.push(res.data[i]);
-  //     }
-  //     setData(()=>arr1);
-  //     setLoading(false);
-  //   })
-  // },[dataSearch !==''])
+  },[dataSearch])
+
+  useEffect(()=>{
+    setLoading(true);
+    const arr1 =[];
+    axios.get(`https://restcountries.com/v3.1/region/${dataSearch}`)
+    .then(res=>{
+      for(let i=0;i<res.data.length;i++){
+        arr1.push(res.data[i]);
+      }
+      setData(()=>arr1);
+      setLoading(false);
+    })
+  },[dataSearch]);
 
   const handleChange=(e)=>{
     setDataSearch((data)=>{
       return data=e.target.value;
     })
   }
-  console.log(data)
+  
   return (
     <div id='bodyDiv'>
           <Search search={dataSearch} changeHandler={handleChange} id='searchCountry'/>
