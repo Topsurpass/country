@@ -148,35 +148,5 @@ function App() {
 
 export default App;
 
-// import './App.scss';
-// import { CountryData } from './CountryData';
-// import { CountryFullDetails } from './CountryFullDetails';
-// import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { useState } from 'react';
-// function App() {
-//   const [tracker, setTracker]=useState(0);
-
-//   return (
-//     <Router>
-//       <div className="App">
-//           <header>
-//             <div className='logo'><h3>Where in the world</h3></div>
-//             <div className='darkMode'><h5>Dark Mode</h5></div>
-//           </header>
-//           <br/>
-//       </div>
-//       <Routes>
-//         <Route path='/' element={       
-//           <CountryData />      
-//         }/>
-//         <Route path='/country_details' element={
-//           <CountryFullDetails/>
-//         }/>       
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
 
  
