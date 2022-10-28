@@ -5,7 +5,7 @@ export const Search = (props) => {
 
   return (
     <div className='searchDiv'>
-        <input type='search' value={props.search} onChange={props.changeHandler} id={props.id} placeholder='Search by country'/>
+        <input type='search' value={props.search} onChange={props.changeSearch} id={props.id} placeholder='Search by country'/>
         <select id="filter" onChange={props.select}>
             <option value="" name="Filter By Region">Filter By Region</option>
             <option value="Africa" name="Africa">Africa</option>
