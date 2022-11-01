@@ -7,6 +7,7 @@ body{
     justify-content:center;
     align-items:center;
 }
+$myFont:Georgia, 'Times New Roman', Times, serif;
 #root{
     display:grid;
     grid-template-columns: 1fr;
@@ -54,6 +55,7 @@ header{
     .info{
         margin-left: 5%;
         color:white;
+        font-family:$myFont
     }
     .flagPic{
         height:50%;
@@ -62,11 +64,20 @@ header{
 .moreInfo{
     width:90%;
     color:white;
+    font-family:$myFont;
     input{
         width:40%;
         height:40px;
         background-color: rgb(107, 98, 98);
         color:white;
+        font-size: 15px;
+        font-family:$myFont;
+    }
+    div{
+        width:100%; 
+        p{
+            width: 100%;
+        }
     }
 }
 .error{
@@ -78,6 +89,25 @@ header{
     text-decoration: none;
     cursor: pointer;
 }
+.loader{
+    margin-top: 15%;
+}
+.border{
+    display:flex;
+    justify-content: space-evenly;
+
+    div{
+        border:2px solid rgb(131, 128, 125);
+        text-align: center;
+        margin-left: 10px;
+        background-color: rgb(131, 128, 125);
+        border-radius: 2px;
+    }
+    .first{
+        margin-left: 0px;
+    }
+}
+
 @media only screen and (min-width:769px) {
 
     #root{
@@ -97,5 +127,9 @@ header{
         select{
             width:20%;
         }
+    }
+    .loader{
+        grid-column: span 4;
+        margin-top: 10%;
     }
 }
