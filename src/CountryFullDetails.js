@@ -3,7 +3,6 @@ import './App.scss';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import axios from 'axios';
 
 export const CountryFullDetails = (props) => {
     const [newData, setNewData] = useState({
@@ -18,18 +17,19 @@ export const CountryFullDetails = (props) => {
             currencies:{obj:{name:''}},
             languages:{obj:{eng:''}},
     });
+    const [storage, setStorage] = useState([]);
+
     useEffect(()=>{
         let isCleaning = false; 
         const save =  JSON.parse(localStorage.getItem('dataIndex'));                
             if(!isCleaning){
                 setNewData(()=>save[0]);
+                setStorage(()=>save[0])
             } 
             return ()=>{
             isCleaning = true; 
             }
-      },[localStorage]);
-
-      const object = Object.keys(newData.currencies)
+      },[storage]);
 
   return (
     <div className='moreInfo'>
