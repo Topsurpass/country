@@ -60,7 +60,10 @@ export const CountryFullDetails = (props) => {
                 <div><p>Languages: {` ${Object.values(newData.languages)}`}</p></div>
             </div>
             <br/>
+            <div>Border countries:</div>
+             <br/>
             <div className='border'>
+                
                 {
                     //if border is not present in the data 
                     newData.borders === undefined ?
